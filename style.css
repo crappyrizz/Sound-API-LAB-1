@@ -1,0 +1,227 @@
+* {
+  box-sizing: border-box;
+  user-select: none;
+}
+
+body {
+  background: #1a1e2a;
+  font-family: 'Segoe UI', 'Inter', system-ui, -apple-system, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 1.5rem;
+}
+
+
+.audio-console {
+  max-width: 680px;
+  width: 100%;
+  background: #0f1219;
+  border-radius: 28px;
+  padding: 1.8rem 1.8rem 2rem 1.8rem;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  border: 1px solid #2c2f3a;
+}
+
+
+.track-visual {
+  background: #080b12;
+  border-radius: 40px;
+  height: 80px;
+  margin-bottom: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #2a2e3c;
+  position: relative;
+  overflow: hidden;
+}
+
+.vis-bars {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 0 12px;
+}
+
+.vis-bar {
+  background: #3b425e;
+  width: 8px;
+  border-radius: 4px;
+  transition: height 0.08s linear, background 0.1s;
+  height: 18px;
+}
+
+.vis-bar.active {
+  background: #7b8cd9;
+  box-shadow: 0 0 4px #5f7ad9;
+}
+
+
+.time-panel {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'JetBrains Mono', monospace, 'Fira Code';
+  font-size: 0.9rem;
+  background: #07090f;
+  padding: 10px 16px;
+  border-radius: 48px;
+  margin-bottom: 1.8rem;
+  color: #b9c7e6;
+  border: 1px solid #2b2f3c;
+  letter-spacing: 0.5px;
+}
+
+.current-time, .duration-time {
+  background: #00000030;
+  padding: 2px 8px;
+  border-radius: 24px;
+}
+
+
+.progress-area {
+  margin-bottom: 2rem;
+}
+
+.scrub-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.7rem;
+  color: #7f8aa8;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  background: transparent;
+}
+
+input[type="range"]:focus {
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 6px;
+  background: #262b38;
+  border-radius: 10px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  background: #a0b3f0;
+  margin-top: -6px;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 1px 4px black;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  background: #c0d0ff;
+  transform: scale(1.1);
+}
+
+
+.control-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.ctrl-btn {
+  background: #1f2538;
+  border: none;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 10px 20px;
+  border-radius: 60px;
+  color: #eef3ff;
+  font-family: inherit;
+  cursor: pointer;
+  transition: 0.08s linear;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+  border-bottom: 2px solid #2f354a;
+  min-width: 90px;
+  letter-spacing: 0.4px;
+}
+
+.ctrl-btn:active {
+  transform: translateY(1px);
+  border-bottom-width: 1px;
+}
+
+.ctrl-btn.primary {
+  background: #2f3b6e;
+  border-bottom-color: #5a6fc0;
+}
+
+.ctrl-btn.special {
+  background: #2a2f48;
+  border-bottom-color: #5f6b96;
+}
+
+
+.mixer-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.8rem;
+  justify-content: space-between;
+  background: #0b0e16;
+  padding: 1.2rem 1.2rem;
+  border-radius: 32px;
+  margin-top: 0.2rem;
+}
+
+.control-group {
+  flex: 1;
+  min-width: 130px;
+}
+
+.control-group label {
+  display: block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: #8e9ac0;
+  margin-bottom: 8px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.value-indicator {
+  display: inline-block;
+  background: #00000055;
+  padding: 2px 8px;
+  border-radius: 40px;
+  font-size: 0.75rem;
+  margin-left: 8px;
+  font-family: monospace;
+}
+
+input.slider-knob {
+  width: 100%;
+}
+
+@media (max-width: 500px) {
+  .audio-console {
+    padding: 1.2rem;
+  }
+  .ctrl-btn {
+    padding: 7px 14px;
+    min-width: 70px;
+    font-size: 0.85rem;
+  }
+}
