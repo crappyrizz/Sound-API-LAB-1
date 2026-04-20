@@ -24,7 +24,7 @@ let analyserNode = null;
 let mediaSourceNode = null;
 let isAudioContextInitialized = false;
 
-// ---------- helper format time mm:ss ----------
+//  helper format time mm:ss 
 function formatTime(seconds) {
   if (isNaN(seconds)) return "00:00";
   const mins = Math.floor(seconds / 60);
