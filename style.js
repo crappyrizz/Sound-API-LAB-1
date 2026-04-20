@@ -14,6 +14,21 @@ const durationSpan = document.getElementById('durationDisplay');
 const volumePercentSpan = document.getElementById('volumePercent');
 const speedPercentSpan = document.getElementById('speedPercent');
 const audioFileInput = document.getElementById('audioFile');
+const fileChooserLabel = document.getElementById('fileChooserLabel');
+const fileStatus = document.getElementById('fileStatus');
+const removeFileBtn = document.getElementById('removeFileBtn');
+let currentFileUrl = null;
+
+function updateFileControls(hasFile) {
+  if (hasFile) {
+    fileChooserLabel.classList.add('hidden');
+    removeFileBtn.classList.remove('hidden');
+  } else {
+    fileChooserLabel.classList.remove('hidden');
+    removeFileBtn.classList.add('hidden');
+    fileStatus.innerText = 'no file loaded';
+  }
+}
 
 // Visualizer elements
 const visualBarsContainer = document.getElementById('visualBars');
@@ -298,11 +313,33 @@ audio.loop = false;
 audioFileInput.addEventListener('change', (e) => {
   const file = e.target.files[0];
   if (file) {
-    audio.src = URL.createObjectURL(file);
+    if (currentFileUrl) {
+      URL.revokeObjectURL(currentFileUrl);
+    }
+    currentFileUrl = URL.createObjectURL(file);
+    audio.src = currentFileUrl;
+    fileStatus.innerText = file.name;
+    updateFileControls(true);
     audio.load();
     updateTimeDisplay();
   }
 });
+
+removeFileBtn.addEventListener('click', () => {
+  audio.pause();
+  if (currentFileUrl) {
+    URL.revokeObjectURL(currentFileUrl);
+    currentFileUrl = null;
+  }
+  audio.src = '';
+  audioFileInput.value = '';
+  currentTimeSpan.innerText = '00:00';
+  durationSpan.innerText = '00:00';
+  seekSlider.value = 0;
+  updateFileControls(false);
+});
+
+updateFileControls(false);
 
 // preload audio metadata without autoplay
 audio.load();
