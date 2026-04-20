@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Audio Control system</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="audio-console">
+    <!---- custom animations ----->
+    <div class="track-visual" id="visualizerContainer">
+    <div class="vis-bars" id="visualBars"></div>
+</div>
+
+<!-- seek bar (progress control) -->
+<div class="progress-area">
+    <div class="scrub-label">
+        <span>seek position</span>
+        <span id="seekHint">drag to skip</span>
+    </div>
+    <input type="range" id="seekSlider" value="0" min="0" max="100" step="0.01">
+</div>
