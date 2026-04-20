@@ -28,3 +28,23 @@
     </div>
     <input type="range" id="seekSlider" value="0" min="0" max="100" step="0.01">
 </div>
+
+<!---- core controls ---->
+<div class="control-grid">
+    <button class="ctrl-btn primary" id="playBtn">Play</button>
+    <button class="ctrl-btn" id="pauseBtn">Pause</button>
+    <button class="ctrl-btn special" id="muteBtn">Mute</button>
+    <button class="ctrl-btn special" id="loopBtn">Loop Off</button>
+</div>
+
+<!---- volume slider and speed slider  ---->
+<div class="mixer-section">
+    <div class="control-group">
+        <label>volume <span id="volumePercent" class="value-indicator">80%</span></label>
+        <input type="range" id="volumeSlider" class="slider-knob" min="0" max="1" step="0.01" value="0.8">
+    </div>
+    <div class="control-group">
+        <label>playback speed <span id="speedPercent" class="value-indicator">1.00x</span></label>
+        <input type="range" id="speedSlider" class="slider-knob" min="0.5" max="2.0" step="0.01" value="1.0">
+    </div>
+</div>
